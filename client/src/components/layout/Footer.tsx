@@ -12,10 +12,10 @@ const quickLinks = [
 export default function Footer() {
   return (
     <footer id="contact" className="bg-brand-blue-dark text-white">
-      <div className="section-container grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
+      <div className="section-container grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-10 xl:gap-x-10">
         {/* Brand */}
-        <div className="lg:col-span-1">
-          <img src="/images/logo.png" alt="Dam Needles Embroidery" className="mb-4 h-14 w-auto rounded bg-white px-2 py-1" />
+        <div className="lg:col-span-1 lg:pr-8 xl:pr-12">
+          <img src="/images/logo.png" alt="Dam Needles Embroidery" className="mb-4 h-14 w-auto" />
           <p className="mb-4 text-sm leading-relaxed text-white/80">
             Professional embroidery and printing for workwear, uniforms, sportswear and more. Quality you can see,
             service you can trust.
@@ -38,7 +38,7 @@ export default function Footer() {
         </div>
 
         {/* Quick Links */}
-        <div>
+        <div className="lg:pl-2 xl:pl-4">
           <h3 className="mb-4 text-sm font-bold tracking-wider uppercase">Quick Links</h3>
           <ul className="space-y-2.5">
             {quickLinks.map((link) => (
@@ -49,28 +49,6 @@ export default function Footer() {
               </li>
             ))}
           </ul>
-        </div>
-
-        {/* Shop Address */}
-        <div>
-          <h3 className="mb-4 text-sm font-bold tracking-wider uppercase">Shop Address</h3>
-          <address className="text-sm not-italic leading-relaxed text-white/80">
-            Dam Needles Embroidery
-            <br />
-            Unit 4, Knowle Park
-            <br />
-            Cranleigh, Surrey
-            <br />
-            GU6 8TB
-          </address>
-          <a
-            href="https://maps.google.com/?q=Cranleigh+Surrey"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-3 inline-block text-sm font-semibold text-brand-gold hover:underline"
-          >
-            View on Map →
-          </a>
         </div>
 
         {/* Contact */}
@@ -93,22 +71,39 @@ export default function Footer() {
               </a>
             </li>
           </ul>
+          <address className="mt-4 text-sm not-italic leading-relaxed text-white/80">
+            Dam Needles Embroidery
+            <br />
+            Unit 4, Knowle Park
+            <br />
+            Cranleigh, Surrey
+            <br />
+            GU6 8TB
+          </address>
+          <a
+            href="https://maps.google.com/?q=Cranleigh+Surrey"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-block text-sm font-semibold text-brand-gold hover:underline"
+          >
+            View on Map →
+          </a>
         </div>
 
         {/* Opening Hours */}
         <div>
           <h3 className="mb-4 text-sm font-bold tracking-wider uppercase">Opening Hours</h3>
           <ul className="space-y-2 text-sm text-white/80">
-            <li className="flex justify-between gap-4">
-              <span>Mon – Fri</span>
+            <li className="flex gap-3">
+              <span className="w-20 shrink-0">Mon – Fri</span>
               <span className="font-medium text-white">9:00am – 5:00pm</span>
             </li>
-            <li className="flex justify-between gap-4">
-              <span>Saturday</span>
+            <li className="flex gap-3">
+              <span className="w-20 shrink-0">Saturday</span>
               <span className="font-medium text-white">10:00am – 2:00pm</span>
             </li>
-            <li className="flex justify-between gap-4">
-              <span>Sunday</span>
+            <li className="flex gap-3">
+              <span className="w-20 shrink-0">Sunday</span>
               <span className="font-medium text-white">Closed</span>
             </li>
           </ul>
