@@ -1,0 +1,55 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-brand-blue: #003399;
+  --color-brand-blue-dark: #002266;
+  --color-brand-gold: #f2a900;
+  --color-brand-gold-hover: #d99400;
+  --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  color: #1a1a2e;
+}
+
+@layer utilities {
+  .section-container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-heading {
+    @apply text-2xl font-bold tracking-wide text-brand-blue uppercase sm:text-3xl;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded bg-brand-gold px-6 py-3 text-sm font-bold text-gray-900 transition-colors hover:bg-brand-gold-hover;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded border-2 border-brand-blue bg-white px-6 py-3 text-sm font-semibold text-brand-blue transition-colors hover:bg-brand-blue hover:text-white;
+  }
+
+  .carousel-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .carousel-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .how-it-works-dots {
+    height: 2px;
+    background: repeating-linear-gradient(
+      to right,
+      var(--color-brand-gold) 0,
+      var(--color-brand-gold) 3px,
+      transparent 3px,
+      transparent 8px
+    );
+  }
+}
