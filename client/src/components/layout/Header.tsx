@@ -10,7 +10,6 @@ import {
   InstagramIcon,
   MenuIcon,
   PhoneIcon,
-  ShieldIcon,
 } from '../icons'
 
 const navLinks = [
@@ -21,27 +20,34 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ]
 
-const tickerItems = [
-  'High Quality. Great Value. Your Logo.',
-  'Fast Turnaround',
-  'Free Delivery Within 10 Miles',
-]
+function TickerSegment() {
+  return (
+    <span className="inline-flex shrink-0 items-center">
+      <span className="font-medium whitespace-nowrap">High Quality. Great Value. Your Logo.</span>
+      <span className="mx-3 text-brand-gold">•</span>
+      <span className="font-medium whitespace-nowrap">Fast Turnaround</span>
+      <span className="mx-3 text-brand-gold">•</span>
+      <span className="font-medium whitespace-nowrap">Free Delivery Within 10 Miles</span>
+      <span className="mx-3 text-brand-gold">•</span>
+    </span>
+  )
+}
 
 function TopTicker() {
-  const content = tickerItems.map((item, index) => (
-    <span key={item} className="flex shrink-0 items-center">
-      {index > 0 && <span className="mx-3 text-brand-gold">•</span>}
-      {index === 0 && <ShieldIcon className="mr-1.5 h-3.5 w-3.5 shrink-0 text-brand-gold" />}
-      <span className="font-medium whitespace-nowrap">{item}</span>
-    </span>
-  ))
+  const segmentCount = 8
 
   return (
-    <div className="overflow-hidden sm:hidden">
-      <div className="animate-marquee flex w-max">
-        <div className="flex shrink-0 items-center pr-8">{content}</div>
-        <div className="flex shrink-0 items-center pr-8" aria-hidden="true">
-          {content}
+    <div className="w-full overflow-hidden">
+      <div className="animate-marquee flex w-max flex-nowrap will-change-transform">
+        <div className="flex shrink-0 flex-nowrap items-center">
+          {Array.from({ length: segmentCount }, (_, i) => (
+            <TickerSegment key={`a-${i}`} />
+          ))}
+        </div>
+        <div className="flex shrink-0 flex-nowrap items-center" aria-hidden="true">
+          {Array.from({ length: segmentCount }, (_, i) => (
+            <TickerSegment key={`b-${i}`} />
+          ))}
         </div>
       </div>
     </div>
@@ -66,19 +72,12 @@ export default function Header() {
     <header className="sticky top-0 z-50">
       {/* Top bar */}
       <div className="bg-brand-blue text-white">
-        <div className="section-container flex flex-wrap items-center justify-between gap-2 py-2.5 text-xs sm:text-sm">
-          <span className="hidden items-center gap-1.5 font-medium sm:inline-flex">
-            <ShieldIcon className="h-3.5 w-3.5 text-brand-gold" />
-            High Quality. Great Value. Your Logo.
-          </span>
+        <div className="flex items-center py-2.5 text-xs sm:text-sm">
+          <div className="min-w-0 flex-1 overflow-hidden">
+            <TopTicker />
+          </div>
 
-          <TopTicker />
-
-          <span className="hidden text-center text-white/95 sm:block">
-            Fast Turnaround <span className="mx-1.5 text-brand-gold">•</span> Free Delivery Within 10 Miles
-          </span>
-
-          <div className="flex items-center gap-3">
+          <div className="hidden shrink-0 items-center gap-3 px-4 sm:flex sm:px-6 lg:px-8">
             <a href="tel:07754606739" className="flex items-center gap-1.5 font-medium transition-colors hover:text-brand-gold">
               <PhoneIcon className="h-3.5 w-3.5 text-brand-gold" />
               <span className="hidden sm:inline">07754 606739</span>

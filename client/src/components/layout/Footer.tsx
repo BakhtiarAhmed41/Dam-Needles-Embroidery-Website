@@ -15,13 +15,13 @@ export default function Footer() {
     <footer id="contact" className="overflow-hidden bg-brand-blue-dark text-white">
       <div className="section-container grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-10 xl:gap-x-10">
         {/* Brand */}
-        <ScrollAnimation className="lg:col-span-1 lg:pr-8 xl:pr-12">
-          <img src="/images/logo.png" alt="Dam Needles Embroidery" className="mb-4 h-14 w-auto" />
+        <ScrollAnimation className="text-center sm:text-left lg:col-span-1 lg:pr-8 xl:pr-12">
+          <img src="/images/logo.png" alt="Dam Needles Embroidery" className="mx-auto mb-4 h-14 w-auto sm:mx-0" />
           <p className="mb-4 text-sm leading-relaxed text-white/80">
             Professional embroidery and printing for workwear, uniforms, sportswear and more. Quality you can see,
             service you can trust.
           </p>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-center gap-3 sm:justify-start">
             <a href="#" className="rounded-full bg-white/10 p-2 transition-colors hover:bg-brand-gold" aria-label="Facebook">
               <FacebookIcon className="h-4 w-4" />
             </a>
@@ -39,7 +39,7 @@ export default function Footer() {
         </ScrollAnimation>
 
         {/* Quick Links */}
-        <ScrollAnimation delay={0.1} className="lg:pl-2 xl:pl-4">
+        <ScrollAnimation delay={0.1} className="text-center sm:text-left lg:pl-2 xl:pl-4">
           <h3 className="mb-4 text-sm font-bold tracking-wider uppercase">Quick Links</h3>
           <ul className="space-y-2.5">
             {quickLinks.map((link) => (
@@ -53,7 +53,7 @@ export default function Footer() {
         </ScrollAnimation>
 
         {/* Contact */}
-        <ScrollAnimation delay={0.2}>
+        <ScrollAnimation delay={0.2} className="text-center sm:text-left">
           <h3 className="mb-4 text-sm font-bold tracking-wider uppercase">Contact Us</h3>
           <ul className="space-y-2.5 text-sm text-white/80">
             <li>
@@ -92,18 +92,18 @@ export default function Footer() {
         </ScrollAnimation>
 
         {/* Opening Hours */}
-        <ScrollAnimation delay={0.3}>
+        <ScrollAnimation delay={0.3} className="text-center sm:text-left">
           <h3 className="mb-4 text-sm font-bold tracking-wider uppercase">Opening Hours</h3>
-          <ul className="space-y-2 text-sm text-white/80">
-            <li className="flex gap-3">
+          <ul className="inline-block space-y-2 text-left text-sm text-white/80 sm:block">
+            <li className="flex justify-center gap-3 sm:justify-start">
               <span className="w-20 shrink-0">Mon – Fri</span>
               <span className="font-medium text-white">9:00am – 5:00pm</span>
             </li>
-            <li className="flex gap-3">
+            <li className="flex justify-center gap-3 sm:justify-start">
               <span className="w-20 shrink-0">Saturday</span>
               <span className="font-medium text-white">10:00am – 2:00pm</span>
             </li>
-            <li className="flex gap-3">
+            <li className="flex justify-center gap-3 sm:justify-start">
               <span className="w-20 shrink-0">Sunday</span>
               <span className="font-medium text-white">Closed</span>
             </li>

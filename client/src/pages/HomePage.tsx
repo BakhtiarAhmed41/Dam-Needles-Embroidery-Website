@@ -329,24 +329,48 @@ export default function HomePage() {
       </section>
 
       {/* How It Works */}
-      <section className="relative overflow-hidden py-8 sm:py-10">
+      <section className="relative overflow-hidden py-12 sm:py-14 lg:py-10">
         <div
-          className="pointer-events-none absolute inset-0 bg-[url('/images/how-It-works-bg-image.png')] bg-size-[100%_auto] bg-position-[center_center] bg-no-repeat"
+          className="pointer-events-none absolute inset-0 bg-[url('/images/how-It-works-bg-image.png')] bg-cover bg-center bg-no-repeat lg:bg-size-[100%_auto] lg:bg-position-[center_center]"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-brand-blue-dark/50 sm:bg-brand-blue-dark/30 lg:bg-transparent"
           aria-hidden="true"
         />
         <div className="section-container relative z-10">
-          <ScrollAnimation className="mb-6 text-center sm:mb-8">
-            <p className="mb-1.5 text-[10px] font-bold tracking-[0.25em] text-brand-gold uppercase sm:text-xs">
+          <ScrollAnimation className="mb-8 text-center sm:mb-10 lg:mb-8">
+            <p className="mb-2 text-xs font-bold tracking-[0.25em] text-brand-gold uppercase sm:text-sm">
               How It Works
             </p>
-            <h2 className="font-serif text-xl font-normal text-white sm:text-2xl lg:text-3xl">
+            <h2 className="font-serif text-2xl font-normal text-white sm:text-3xl lg:text-3xl">
               Simple. Seamless. Stress-Free.
             </h2>
           </ScrollAnimation>
 
-          <div className="mx-auto max-w-2xl px-2 lg:max-w-none">
-            {/* Mobile / tablet grid */}
-            <div className="grid grid-cols-2 gap-x-3 gap-y-6 lg:hidden">
+          <div className="mx-auto max-w-sm sm:max-w-2xl lg:max-w-none">
+            {/* Mobile — single column */}
+            <div className="flex flex-col gap-10 sm:hidden">
+              {steps.map((step, index) => (
+                <ScrollAnimation key={step.num} delay={0.1 + index * 0.1}>
+                  <div className="flex flex-col items-center text-center">
+                    <div className="relative mb-4">
+                      <span className="absolute -top-1 -left-1 z-20 flex h-6 w-6 items-center justify-center rounded-full bg-brand-gold text-xs font-bold text-gray-900">
+                        {step.num}
+                      </span>
+                      <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border-2 border-white">
+                        <step.icon className="h-7 w-7 text-white" />
+                      </div>
+                    </div>
+                    <h3 className="mb-2 text-sm font-bold tracking-wide text-white uppercase">{step.title}</h3>
+                    <p className="max-w-xs text-sm leading-relaxed text-white/90">{step.desc}</p>
+                  </div>
+                </ScrollAnimation>
+              ))}
+            </div>
+
+            {/* Tablet — 2×2 grid */}
+            <div className="hidden grid-cols-2 gap-x-6 gap-y-10 sm:grid lg:hidden">
               {steps.map((step, index) => (
                 <ScrollAnimation key={step.num} delay={0.1 + index * 0.1}>
                   <div className="flex flex-col items-center text-center">
@@ -358,8 +382,8 @@ export default function HomePage() {
                         <step.icon className="h-6 w-6 text-white" />
                       </div>
                     </div>
-                    <h3 className="mb-1 text-[10px] font-bold tracking-wide text-white uppercase">{step.title}</h3>
-                    <p className="max-w-[140px] text-[10px] leading-snug text-white">{step.desc}</p>
+                    <h3 className="mb-1.5 text-xs font-bold tracking-wide text-white uppercase">{step.title}</h3>
+                    <p className="max-w-[180px] text-xs leading-relaxed text-white/90">{step.desc}</p>
                   </div>
                 </ScrollAnimation>
               ))}
